@@ -3,8 +3,9 @@ import sqlalchemy
 from .db_session import SqlAlchemyBase
 from sqlalchemy import orm
 
-
+"""
 class User(SqlAlchemyBase):
+
     __tablename__ = 'users'
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
@@ -17,8 +18,9 @@ class User(SqlAlchemyBase):
     created_date = sqlalchemy.Column(sqlalchemy.DateTime,
                                      default=datetime.datetime.now)
     news = orm.relationship("News", back_populates='user')
-
 """
+
+
 class User(SqlAlchemyBase):
     __tablename__ = 'users'
 
@@ -36,4 +38,6 @@ class User(SqlAlchemyBase):
     modified_date = sqlalchemy.Column(sqlalchemy.DateTime,
                                       default=datetime.datetime.now)
     news = orm.relationship("Jobs", back_populates='user')
-"""
+
+    def __repr__(self):
+        return f'<Colonist> {id} {surname} {name}'
